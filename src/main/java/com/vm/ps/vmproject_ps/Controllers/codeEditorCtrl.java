@@ -35,4 +35,16 @@ public class codeEditorCtrl{
             }
         }
     }
+
+    public void openFile(MouseEvent mouseEvent) {
+    }
+
+    public void saveFile(MouseEvent mouseEvent) {
+    }
+
+    public void runCode(MouseEvent mouseEvent) {
+    }
+
+    public void codeNextStep(MouseEvent mouseEvent) {
+    }
 }
