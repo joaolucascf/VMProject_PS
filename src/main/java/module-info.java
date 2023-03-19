@@ -1,6 +1,7 @@
 module com.vm.ps.vmproject_ps {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.vm.ps.vmproject_ps to javafx.fxml;
