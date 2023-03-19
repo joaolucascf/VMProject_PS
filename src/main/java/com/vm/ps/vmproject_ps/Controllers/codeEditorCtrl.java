@@ -1,15 +1,9 @@
 package com.vm.ps.vmproject_ps.Controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
-
-import java.net.URL;
 import java.util.Iterator;
-import java.util.ResourceBundle;
 
 public class codeEditorCtrl{
     @FXML
@@ -43,6 +37,9 @@ public class codeEditorCtrl{
     }
 
     public void runCode(MouseEvent mouseEvent) {
+        //teste
+        Memory a = new Memory();
+        a.printMemory();
     }
 
     public void codeNextStep(MouseEvent mouseEvent) {

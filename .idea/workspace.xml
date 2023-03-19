@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Iniciando a interface gráfica">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/approve-file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/fast-forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/import-file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/open-folder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/play.png" afterDir="false" />
+    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Trying to make a responsive design, gn zzz">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/Memory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/Registers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/codeEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/codeEditor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Initialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Initialize.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,13 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678673739542</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Trying to make a responsive design, gn zzz">
+      <created>1678686266670</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678686266670</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JavaFX config" />
     <MESSAGE value="Iniciando a interface gráfica" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciando a interface gráfica" />
+    <MESSAGE value="Trying to make a responsive design, gn zzz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to make a responsive design, gn zzz" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
