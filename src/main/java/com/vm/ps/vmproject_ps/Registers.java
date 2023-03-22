@@ -1,4 +1,4 @@
-package com.vm.ps.vmproject_ps.Controllers;
+package com.vm.ps.vmproject_ps;
 
 public class Registers {
 
@@ -23,6 +23,15 @@ public class Registers {
             floatPointAccumulator[i] = 0b00000001;
             PC[i] = 0b00000001;
             SW[i] = 0b00000001;
+        }
+    }
+
+    public byte[] getAccumulator() {
+        return accumulator;
+    }
+    public void setAccumulator(byte[] accumulator) {
+        for(int i=0; i<3; i++){
+            this.accumulator[i] = accumulator[i];
         }
     }
 }

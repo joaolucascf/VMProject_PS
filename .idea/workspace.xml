@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Trying to make a responsive design, gn zzz">
+    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Trying to make the app open Desktop Files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Conversion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Instruction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/InstructionStruct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/Memory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/Memory2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/Registers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Registers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,20 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vaipo/Documents/Java Projects/VMProject_PS/src/main/resources/img&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Vaipo/Documents/Java Projects/PS/processador/MaquinaVirtual",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vaipo\Documents\Java Projects\VMProject_PS\src\main\java\com\vm\ps\vmproject_ps" />
       <recent name="C:\Users\Vaipo\Documents\Java Projects\VMProject_PS\src\main\resources\img" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.vm.ps.vmproject_ps" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -94,14 +104,22 @@
       <option name="project" value="LOCAL" />
       <updated>1679248445804</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Trying to make the app open Desktop Files">
+      <created>1679249930218</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679249930218</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JavaFX config" />
     <MESSAGE value="Iniciando a interface gráfica" />
     <MESSAGE value="Trying to make a responsive design, gn zzz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to make a responsive design, gn zzz" />
+    <MESSAGE value="Trying to make the app open Desktop Files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to make the app open Desktop Files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -9,30 +9,37 @@ import javafx.scene.input.MouseEvent;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class codeEditorCtrl{
     @FXML
     public Button newFileBtn;
     public TabPane tabPaneEditor;
     public Button deleteFileBtn;
+    private List<TextArea> codeSet = new ArrayList<>();
     public void newFile(MouseEvent mouseEvent) {
         tabPaneEditor.getTabs().add(createDefaultTab());
     }
     public Tab createDefaultTab(){
         Tab newTab = new Tab("New Tab");
         TextArea emptyTextArea = new TextArea();
+        codeSet.add(emptyTextArea);
         newTab.setContent(emptyTextArea);
         return newTab;
     }
     public void closeFile(MouseEvent mouseEvent) {
+        int i=0;
         Iterator<Tab> tabIterator = tabPaneEditor.getTabs().iterator();
         while(tabIterator.hasNext()){
             Tab selectedTab = tabIterator.next();
             if(selectedTab.isSelected()){
                 tabPaneEditor.getTabs().remove(selectedTab);
+                codeSet.remove(i);
                 return;
             }
+            i++;
         }
     }
 
@@ -45,9 +52,18 @@ public class codeEditorCtrl{
     }
 
     public void runCode(MouseEvent mouseEvent) {
-        //teste
-        Memory a = new Memory();
-        a.printMemory();
+        int i=0;
+        TextArea codeToRun = null;
+        Iterator<Tab> tabIterator = tabPaneEditor.getTabs().iterator();
+        while(tabIterator.hasNext()){
+            Tab selectedTab = tabIterator.next();
+            if(selectedTab.isSelected()){
+                codeToRun = codeSet.get(i);
+                break;
+            }
+            i++;
+        }
+        String code = codeToRun.getText();
     }
 
     public void codeNextStep(MouseEvent mouseEvent) {
