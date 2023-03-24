@@ -1,6 +1,11 @@
 package com.vm.ps.vmproject_ps.Controllers;
 
+import com.vm.ps.vmproject_ps.Memory;
+import com.vm.ps.vmproject_ps.ULA;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -9,8 +14,8 @@ import javafx.scene.input.MouseEvent;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.net.URL;
+import java.util.*;
 import java.util.List;
 
 public class codeEditorCtrl{
@@ -19,9 +24,12 @@ public class codeEditorCtrl{
     public TabPane tabPaneEditor;
     public Button deleteFileBtn;
     private List<TextArea> codeSet = new ArrayList<>();
+
+    private ULA controlUnity = new ULA();
     public void newFile(MouseEvent mouseEvent) {
         tabPaneEditor.getTabs().add(createDefaultTab());
     }
+
     public Tab createDefaultTab(){
         Tab newTab = new Tab("New Tab");
         TextArea emptyTextArea = new TextArea();
@@ -64,6 +72,7 @@ public class codeEditorCtrl{
             i++;
         }
         String code = codeToRun.getText();
+        controlUnity.stepOne(code);
     }
 
     public void codeNextStep(MouseEvent mouseEvent) {

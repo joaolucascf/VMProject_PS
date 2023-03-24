@@ -9,4 +9,8 @@ public class InstructionStruct {
 		this.decimalOpCode = decimal;
 		this.instructionFormat = format;
 	}
+
+	public String getInstructionName() {
+		return instructionName;
+	}
 }

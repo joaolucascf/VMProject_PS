@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Instruction {
-	List<InstructionStruct> op = new ArrayList<InstructionStruct>();
+	private List<InstructionStruct> op = new ArrayList<InstructionStruct>();
 	//os opcodes est�o em decimal para facilitar a convers�o e interpreta��o dos dados.
 	public Instruction() {
 		op.add(new InstructionStruct("add","24", "3/4"));
@@ -47,4 +47,7 @@ public class Instruction {
 		op.add(new InstructionStruct("tixr","184", "2"));
 	}
 
+	public List<InstructionStruct> getInstructionList(){
+		return op;
+	}
 }
