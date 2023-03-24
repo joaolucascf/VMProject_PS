@@ -16,6 +16,7 @@ public class ULA {
         while(sc.hasNext()){
             String codeLine = sc.nextLine();
             String[] commandsLine = codeLine.split("\t");
+            //TODO: need to fix the blank spaces in cmdMemory.
             for(int i=0; i<commandsLine.length; i++){
                 for(InstructionStruct j : instructions.getInstructionList()){
                     if(commandsLine[i].toLowerCase().contains(j.getInstructionName())){
