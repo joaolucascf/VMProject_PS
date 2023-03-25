@@ -46,7 +46,6 @@ public class InstructionSet {
 		op.add(new Operation("tix","44", "3/4"));
 		op.add(new Operation("tixr","184", "2"));
 	}
-
 	public static boolean isInstruction(String mnemonic){
 		for(Operation operation : op){
 			if(operation.getInstructionName().equals(mnemonic.toLowerCase()))

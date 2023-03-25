@@ -40,7 +40,6 @@ C1 RESB 1
         printData();
         return 0;
     }
-
     public void allocateVariables(Scanner sc){
         while(sc.hasNext()){
             String varLine = sc.nextLine();
@@ -50,13 +49,9 @@ C1 RESB 1
             }
         }
     }
-
     public void printData(){
         for(String i : mem.dataMemory){
             System.out.println(i);
         }
-    }
-    public Memory getMem(){
-        return mem;
     }
 }

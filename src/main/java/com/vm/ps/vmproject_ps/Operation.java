@@ -9,15 +9,12 @@ public class Operation {
 		this.decimalOpCode = opcode;
 		this.instructionFormat = format;
 	}
-
 	public String getInstructionName() {
 		return instructionName;
 	}
-
 	public String getDecimalOpCode() {
 		return decimalOpCode;
 	}
-
 	public String getInstructionFormat() {
 		return instructionFormat;
 	}
