@@ -72,7 +72,7 @@ public class codeEditorCtrl{
             i++;
         }
         String code = codeToRun.getText();
-        controlUnity.stepOne(code);
+        controlUnity.read(code);
     }
 
     public void codeNextStep(MouseEvent mouseEvent) {

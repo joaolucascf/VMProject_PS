@@ -6,7 +6,17 @@ import java.util.Map;
 public class Registers {
     Map<String, Register> registerSet = new HashMap<>();
 
-    public Registers() {
+    /* A = Acumulador
+    * X = Indice
+    * L = Ligação
+    * B = Base
+    * S = Genérico
+    * T = Genérico
+    * F = Float Point, não é utilizado nesse checkpoint
+    * PC = Program Counter
+    * SW = Status Word
+    */
+    public Registers() { //Instancia o conjunto de registradores, sendo 8 no total
         String[] registerMnemonics = {"A", "X", "L", "B", "S", "T", "F", "PC", "SW"};
         for(int i=0; i<8; i++)
             registerSet.put(registerMnemonics[i], new Register(i));
@@ -14,7 +24,7 @@ public class Registers {
     public int getAccumulator(){
         return registerSet.get("A").getValue();
     }
-    public void setAccumulator(int accumulator) {
-        registerSet.get("A").setValue(accumulator);
+    public void setAccumulator(int accumulatorValue) {
+        registerSet.get("A").setValue(accumulatorValue);
     }
 }

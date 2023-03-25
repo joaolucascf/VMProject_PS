@@ -1,16 +1,24 @@
 package com.vm.ps.vmproject_ps;
 
-public class InstructionStruct {
+public class Operation {
 	private String instructionName;
 	private String decimalOpCode;
 	private String instructionFormat;
-	public InstructionStruct(String name, String decimal, String format){
+	public Operation(String name, String opcode, String format){
 		this.instructionName = name;
-		this.decimalOpCode = decimal;
+		this.decimalOpCode = opcode;
 		this.instructionFormat = format;
 	}
 
 	public String getInstructionName() {
 		return instructionName;
+	}
+
+	public String getDecimalOpCode() {
+		return decimalOpCode;
+	}
+
+	public String getInstructionFormat() {
+		return instructionFormat;
 	}
 }

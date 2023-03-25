@@ -1,34 +1,61 @@
 package com.vm.ps.vmproject_ps;
 
-import javax.xml.stream.events.Characters;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ULA {
+    /*String a = Integer.toBinaryString(113);
+        Byte b = Byte.parseByte(a, 2);
+LDA FIVE
+STA ALPHA
+LDCH CHARZ
+STCH C1
+STOP
+
+ALPHA RESW 1
+FIVE WORD 5
+CHARZ BYTE C'Z'
+C1 RESB 1
+        */
     private static Memory mem = new Memory();
     private Registers reg = new Registers();
-
-    public int stepOne(String code){
-        Instruction instructions = new Instruction();
-        mem.cmdMemory.clear();
+    Map<String, Integer> variables = new HashMap<>();
+    public int read(String code){
         Scanner sc = new Scanner(code);
         while(sc.hasNext()){
+            boolean stopFound = false;
             String codeLine = sc.nextLine();
-            String[] commandsLine = codeLine.split("\t");
-            //TODO: need to fix the blank spaces in cmdMemory.
-            for(int i=0; i<commandsLine.length; i++){
-                for(InstructionStruct j : instructions.getInstructionList()){
-                    if(commandsLine[i].toLowerCase().contains(j.getInstructionName())){
-                        mem.cmdMemory.add(j.getInstructionName());
-                    }
+            String[] cmdLine = codeLine.split(" ");
+            for(int i=0; i<cmdLine.length; i++){
+                if(!cmdLine[i].isBlank() || !cmdLine[i].isEmpty())
+                    mem.cmdMemory.add(cmdLine[i].trim().toLowerCase());
+                if(cmdLine[i].trim().toLowerCase().equals("stop")){
+                    stopFound = true;
+                    break;
                 }
             }
+            if(stopFound)
+                break;
         }
-        mem.printCmdMemory();
+        allocateVariables(sc);
+        printData();
         return 0;
     }
 
+    public void allocateVariables(Scanner sc){
+        while(sc.hasNext()){
+            String varLine = sc.nextLine();
+            if(!varLine.isEmpty()){
+                String[] allocLine = varLine.split(" ");
+                variables.put(allocLine[0], mem.nextEmptyPosition(allocLine[2]));
+            }
+        }
+    }
+
+    public void printData(){
+        for(String i : mem.dataMemory){
+            System.out.println(i);
+        }
+    }
     public Memory getMem(){
         return mem;
     }
