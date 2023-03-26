@@ -104,8 +104,13 @@ C1 RESB 1
             	reg.registerSet.get("A");
             	break;
             case 160:
+                //reg.registerSet.get("A").getValue().equals(reg.registerSet.get("B").getValue().parseByte());
                 break;
             case 36:
+                String[] regs4 = operand.trim().toUpperCase().split(",");
+            	reg.registerSet.get(regs4[0]).setValue(2);
+            	reg.registerSet.get(regs4[1]).setValue(3);
+            	reg.registerSet.get("A").setValue(reg.registerSet.get(regs4[0]).getValue()/reg.registerSet.get(regs4[1]).getValue());
                 break;
             case 156:
             	String[] regs3 = operand.trim().toUpperCase().split(",");
@@ -117,10 +122,16 @@ C1 RESB 1
             	reg.registerSet.get("PC").setValue(Byte.parseByte(operand));
                 break;
             case 48:
+                if(reg.registerSet.get("A").getValue() == reg.registerSet.get(operand).getValue())
+                reg.registerSet.get("PC").setValue(Byte.parseByte(operand));
                 break;
             case 52:
+                if(reg.registerSet.get("A").getValue() <= reg.registerSet.get(operand).getValue())
+                reg.registerSet.get("PC").setValue(Byte.parseByte(operand));
                 break;
             case 56:
+                if(reg.registerSet.get("A").getValue() >= reg.registerSet.get(operand).getValue())
+                reg.registerSet.get("PC").setValue(Byte.parseByte(operand));
                 break;
             case 72:
                 break;
@@ -148,10 +159,10 @@ C1 RESB 1
             	 reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()*Byte.parseByte(operand,2));	
                 break;
             case 152:
-            	String[] regs4 = operand.trim().toUpperCase().split(",");
-            	reg.registerSet.get(regs4[0]).setValue(2);
-            	reg.registerSet.get(regs4[1]).setValue(3);
-            	reg.registerSet.get(regs4[0]).setValue(reg.registerSet.get(regs4[0]).getValue()*reg.registerSet.get(regs4[1]).getValue());
+            	String[] regs7 = operand.trim().toUpperCase().split(",");
+            	reg.registerSet.get(regs7[0]).setValue(2);
+            	reg.registerSet.get(regs7[1]).setValue(3);
+            	reg.registerSet.get(regs7[0]).setValue(reg.registerSet.get(regs7[0]).getValue()*reg.registerSet.get(regs7[1]).getValue());
                 break;
             case 68:
             	reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()| Byte.parseByte(operand,2));	
@@ -163,16 +174,15 @@ C1 RESB 1
             	reg.registerSet.get(regs5[0]).setValue(reg.registerSet.get(regs5[1]).getValue());
                 break;
             case 76:
-            	//reg.registerSet.get("PC").setValue();
+            	reg.registerSet.get("PC").setValue(reg.registerSet.get("L").getValue());
                 break;
             case 164:
-           // 	reg.registerSet.get(Byte.parseByte(operand, 2)).setValue(A);
+            	reg.registerSet.get(Byte.parseByte(operand, 2)).setValue(reg.registerSet.get(operand).getValue());
                 break;
             case 168:
                 break;
             case 12:
                 mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("A").getValue()));
-                printData();
                 break;
             case 120:
                 break;
@@ -198,10 +208,12 @@ C1 RESB 1
             case 44:
             	
                 break;
+            case 78:
+            mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("B").getValue()));
             case 184:
                 break;
             default:
-                throw new RuntimeException("CÛdigo de operaÁ„o inv·lido");
+                throw new RuntimeException("C√≥digo de opera√ß√£o inv√°lido");
         }
     }
     public void printData(){
