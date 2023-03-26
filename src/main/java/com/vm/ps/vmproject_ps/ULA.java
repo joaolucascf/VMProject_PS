@@ -49,14 +49,24 @@ C1 RESB 1
             }
         }
     }
+
     private void run(){
+        boolean isRegisterOP;
+        String operand;
+        String opCode;
         Register PC = reg.registerSet.get("PC");
         PC.setValue(0);
         while(!mem.cmdMemory.get(PC.getValue()).equals("stop")){
             if(PC.getValue()%2==0){
-                String opCode = InstructionSet.getOpByName(mem.cmdMemory.get(PC.getValue()));
+                opCode = InstructionSet.getOpByName(mem.cmdMemory.get(PC.getValue()));
                 PC.setValue(PC.getValue()+1);
-                String operand = mem.dataMemory.get(variables.get(mem.cmdMemory.get(PC.getValue())));
+                isRegisterOP =opCode.equals("88") || opCode.equals("160") || opCode.equals("156") || opCode.equals("152") ||
+                        opCode.equals("172") || opCode.equals("148")|| opCode.equals("180") ||
+                        opCode.equals("164") || opCode.equals("168") || opCode.equals("184");
+                if(isRegisterOP)
+                    operand = mem.cmdMemory.get(PC.getValue());
+                else
+                    operand = mem.dataMemory.get(variables.get(mem.cmdMemory.get(PC.getValue())));
                 execute(opCode, operand);
                 PC.setValue(PC.getValue()+1);
             }
@@ -70,8 +80,15 @@ C1 RESB 1
                 System.out.println(reg.registerSet.get("A").getValue());
                 break;
             case 88:
+                String[] regs = operand.trim().toUpperCase().split(",");
+                reg.registerSet.get(regs[0]).setValue(2);
+                reg.registerSet.get(regs[1]).setValue(3);
+                reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()+reg.registerSet.get(regs[1]).getValue());
                 break;
             case 64:
+                reg.registerSet.get("A").setValue(10);
+                reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()&Byte.parseByte(operand,2));
+                System.out.println(reg.registerSet.get("A").getValue());
                 break;
             case 180:
                 break;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Memory{
-    private final int WORD_SIZE = 3;
     private final int MEMORY_MIN_SIZE = 1024; //constante de tamanho mínimo de memória de dados
     public List<String> dataMemory = new ArrayList<>(); //memória de dados realocável, tem tamanho minimo de 1024 bytes, alocados no construtor
     public List<String> cmdMemory = new ArrayList<>(); //memória de instruções realocável, tem tamanho minimo de 1024 bytes, alocados no construtor

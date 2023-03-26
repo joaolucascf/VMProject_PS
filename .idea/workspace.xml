@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Memórias funcionais, falta só o executor e acho que terminamos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/InstructionSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/InstructionSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
     </list>
@@ -148,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679776483587</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Memórias funcionais, falta só o executor e acho que terminamos">
+      <created>1679790430225</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679790430225</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,8 +186,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="6" />
+          <line>59</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
