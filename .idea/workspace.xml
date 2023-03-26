@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Memórias funcionais, falta só o executor e acho que terminamos">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/DataMemView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="nem sei mais oq to fazendo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/DataMemView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/DataMemView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/codeEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/codeEditor.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +24,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -164,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679839632957</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="nem sei mais oq to fazendo">
+      <created>1679848930986</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679848930986</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,7 +189,8 @@
     <MESSAGE value="Trying to make the app open Desktop Files" />
     <MESSAGE value="Acho que começamos a ter progresso" />
     <MESSAGE value="Memórias funcionais, falta só o executor e acho que terminamos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Memórias funcionais, falta só o executor e acho que terminamos" />
+    <MESSAGE value="nem sei mais oq to fazendo" />
+    <option name="LAST_COMMIT_MESSAGE" value="nem sei mais oq to fazendo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

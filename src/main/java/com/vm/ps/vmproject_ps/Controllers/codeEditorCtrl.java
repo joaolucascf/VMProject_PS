@@ -1,19 +1,11 @@
 package com.vm.ps.vmproject_ps.Controllers;
 
-import com.vm.ps.vmproject_ps.DataMemView;
-import com.vm.ps.vmproject_ps.Memory;
 import com.vm.ps.vmproject_ps.ULA;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.awt.*;
@@ -28,28 +20,12 @@ public class codeEditorCtrl implements Initializable{
     public Button newFileBtn;
     public TabPane tabPaneEditor;
     public Button deleteFileBtn;
-    public TableView tableMem;
-    public TableColumn<DataMemView, String> M0Column;
-    public TableColumn<DataMemView, String> M3Column;
-    public TableColumn<DataMemView, String> M6Column;
+    public ListView<String> memList;
     private List<TextArea> codeSet = new ArrayList<>();
     private ULA controlUnity = new ULA();
-    ObservableList<DataMemView> memView = FXCollections.observableArrayList(
-            new DataMemView(controlUnity.getMem().dataMemory.get(0),controlUnity.getMem().dataMemory.get(1),controlUnity.getMem().dataMemory.get(2))
-    );
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        M0Column.setCellValueFactory(new PropertyValueFactory<DataMemView, String>("memColumn0"));
-        M3Column.setCellValueFactory(new PropertyValueFactory<DataMemView, String>("memColumn1"));
-        M6Column.setCellValueFactory(new PropertyValueFactory<DataMemView, String>("memColumn2"));
-        for(int i=3; i<controlUnity.getMem().dataMemory.size(); i+=3){
-            if(i+1>=controlUnity.getMem().dataMemory.size()||i+2>=controlUnity.getMem().dataMemory.size())
-                break;
-            memView.add(new DataMemView(controlUnity.getMem().dataMemory.get(i),
-                    controlUnity.getMem().dataMemory.get(i+1),
-                    controlUnity.getMem().dataMemory.get(i+2)));
-        }
-        tableMem.setItems(memView);
+        memList.getItems().addAll(controlUnity.getMem().dataMemory);
     }
     public void newFile(MouseEvent mouseEvent) {
         tabPaneEditor.getTabs().add(createDefaultTab());
