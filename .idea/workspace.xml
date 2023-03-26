@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Memórias funcionais, falta só o executor e acho que terminamos">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/DataMemView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/codeEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/vm/ps/vmproject_ps/codeEditor.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679790430225</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Memórias funcionais, falta só o executor e acho que terminamos">
+      <created>1679839632957</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679839632957</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,11 +194,6 @@
           <properties class="java.util.ConcurrentModificationException" package="java.util" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
