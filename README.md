@@ -77,7 +77,7 @@ Computador hipotético feito em java
   * TIX: operando(m), formato(3/4), opcode(2C), ação(), tipo(C)
   * TIXR: operando(r1), formato(2), opcode(B8), ação(), tipo(C)
   
-  #Formato de instruções:#
+  *Formato de instruções:
 
  * 1 byte: op(8bits)
  * 2 bytes: r1(8bits), r2(8bits)
