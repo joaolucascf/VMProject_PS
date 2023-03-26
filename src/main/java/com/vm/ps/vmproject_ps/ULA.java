@@ -1,4 +1,7 @@
 package com.vm.ps.vmproject_ps;
+import com.vm.ps.vmproject_ps.Controllers.codeEditorCtrl;
+import javafx.scene.control.ListView;
+
 import java.util.*;
 
 public class ULA {
@@ -17,7 +20,7 @@ C1 RESB 1
     private static Memory mem = new Memory();
     private Registers reg = new Registers();
     Map<String, Integer> variables = new HashMap<>();
-    public int read(String code){
+    public int read(String code, ListView memList){
         Scanner sc = new Scanner(code);
         while(sc.hasNext()){
             boolean stopFound = false;
@@ -34,11 +37,11 @@ C1 RESB 1
             if(stopFound)
                 break;
         }
-        allocateVariables(sc);
+        allocateVariables(sc, memList);
         run();
         return 0;
     }
-    public void allocateVariables(Scanner sc){
+    public void allocateVariables(Scanner sc, ListView memList){
         while(sc.hasNext()){
             String varLine = sc.nextLine();
             if(!varLine.isEmpty()){
@@ -46,6 +49,12 @@ C1 RESB 1
                 variables.put(allocLine[0].toLowerCase(), mem.nextEmptyPosition(allocLine[2]));
             }
         }
+        refreshMem(memList);
+    }
+
+    public ListView<String> refreshMem(ListView r){
+        r.getItems().addAll(mem.dataMemory);
+        return r;
     }
 
     private void run(){
@@ -60,7 +69,7 @@ C1 RESB 1
                 PC.setValue(PC.getValue()+1);
                 isRegisterOP =opCode.equals("88") || opCode.equals("160") || opCode.equals("156") || opCode.equals("152") ||
                         opCode.equals("172") || opCode.equals("148")|| opCode.equals("180") ||
-                        opCode.equals("164") || opCode.equals("168") || opCode.equals("184");
+                        opCode.equals("164") || opCode.equals("168") || opCode.equals("184") || opCode.equals("12");
                 if(isRegisterOP)
                     operand = mem.cmdMemory.get(PC.getValue());
                 else
@@ -75,7 +84,6 @@ C1 RESB 1
         switch (Integer.valueOf(opCode)){
             case 24:
                 reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()+Byte.parseByte(operand,2));
-                System.out.println(reg.registerSet.get("A").getValue());
                 break;
             case 88:
                 String[] regs = operand.trim().toUpperCase().split(",");
@@ -163,6 +171,8 @@ C1 RESB 1
             case 168:
                 break;
             case 12:
+                mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("A").getValue()));
+                printData();
                 break;
             case 120:
                 break;

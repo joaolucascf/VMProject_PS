@@ -73,7 +73,7 @@ public class codeEditorCtrl implements Initializable{
             i++;
         }
         String code = codeToRun.getText();
-        controlUnity.read(code);
+        controlUnity.read(code, memList);
     }
     public void codeNextStep(MouseEvent mouseEvent) {
     }

@@ -40,4 +40,9 @@ public class Memory{
         }
         return value;
     }
+
+    public void saveInPosition(int i, String value){
+        dataMemory.remove(i);
+        dataMemory.add(i, value);
+    }
 }
