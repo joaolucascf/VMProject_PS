@@ -22,7 +22,7 @@ public class Memory{
     public int nextEmptyPosition(String value){
         value = manipulateValue(value);
         for(int i=freeMemoryIndex ; i<dataMemory.size(); i++){
-            if(dataMemory.get(i).equals("00000000")){
+            if(dataMemory.get(i).equals("000000000000000000000000")){
                 dataMemory.remove(i);
                 dataMemory.add(i, value);
                 freeMemoryIndex = i+1;

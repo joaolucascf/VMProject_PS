@@ -37,7 +37,7 @@ C1 RESB 1
                 break;
         }
         allocateVariables(sc);
-        printData();
+        run();
         return 0;
     }
     public void allocateVariables(Scanner sc){
@@ -45,8 +45,106 @@ C1 RESB 1
             String varLine = sc.nextLine();
             if(!varLine.isEmpty()){
                 String[] allocLine = varLine.split(" ");
-                variables.put(allocLine[0], mem.nextEmptyPosition(allocLine[2]));
+                variables.put(allocLine[0].toLowerCase(), mem.nextEmptyPosition(allocLine[2]));
             }
+        }
+    }
+    private void run(){
+        Register PC = reg.registerSet.get("PC");
+        PC.setValue(0);
+        while(!mem.cmdMemory.get(PC.getValue()).equals("stop")){
+            if(PC.getValue()%2==0){
+                String opCode = InstructionSet.getOpByName(mem.cmdMemory.get(PC.getValue()));
+                PC.setValue(PC.getValue()+1);
+                String operand = mem.dataMemory.get(variables.get(mem.cmdMemory.get(PC.getValue())));
+                execute(opCode, operand);
+                PC.setValue(PC.getValue()+1);
+            }
+        }
+    }
+
+    private void execute(String opCode, String operand){
+        switch (Integer.valueOf(opCode)){
+            case 24:
+                reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()+Byte.parseByte(operand,2));
+                System.out.println(reg.registerSet.get("A").getValue());
+                break;
+            case 88:
+                break;
+            case 64:
+                break;
+            case 180:
+                break;
+            case 40:
+                break;
+            case 160:
+                break;
+            case 36:
+                break;
+            case 156:
+                break;
+            case 60:
+                break;
+            case 48:
+                break;
+            case 52:
+                break;
+            case 56:
+                break;
+            case 72:
+                break;
+            case 0:
+                break;
+            case 104:
+                break;
+            case 80:
+                break;
+            case 8:
+                break;
+            case 108:
+                break;
+            case 116:
+                break;
+            case 4:
+                break;
+            case 32:
+                break;
+            case 152:
+                break;
+            case 68:
+                break;
+            case 172:
+                break;
+            case 76:
+                break;
+            case 164:
+                break;
+            case 168:
+                break;
+            case 12:
+                break;
+            case 120:
+                break;
+            case 84:
+                break;
+            case 20:
+                break;
+            case 124:
+                break;
+            case 132:
+                break;
+            case 16:
+                break;
+            case 28:
+                break;
+            case 148:
+                break;
+            case 44:
+                break;
+            case 184:
+                break;
+            default:
+                throw new RuntimeException("Código de operação inválido");
         }
     }
     public void printData(){

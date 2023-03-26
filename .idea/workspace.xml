@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Acho que começamos a ter progresso">
+    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Memórias funcionais, falta só o executor e acho que terminamos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/InstructionSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/InstructionSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Memory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679774304194</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Memórias funcionais, falta só o executor e acho que terminamos">
+      <created>1679776483587</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679776483587</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +168,8 @@
     <MESSAGE value="Trying to make a responsive design, gn zzz" />
     <MESSAGE value="Trying to make the app open Desktop Files" />
     <MESSAGE value="Acho que começamos a ter progresso" />
-    <option name="LAST_COMMIT_MESSAGE" value="Acho que começamos a ter progresso" />
+    <MESSAGE value="Memórias funcionais, falta só o executor e acho que terminamos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Memórias funcionais, falta só o executor e acho que terminamos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -171,12 +178,12 @@
           <properties class="java.util.ConcurrentModificationException" package="java.util" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="temp" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

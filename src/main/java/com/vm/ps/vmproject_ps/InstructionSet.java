@@ -1,16 +1,18 @@
 package com.vm.ps.vmproject_ps;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class InstructionSet {
-	private static List<Operation> op = new ArrayList<Operation>();
+	private static List<Operation> op = new ArrayList<>();
 	//os opcodes est�o em decimal para facilitar a convers�o e interpreta��o dos dados.
-	public InstructionSet() {
+	static {
 		op.add(new Operation("add","24", "3/4"));
 		op.add(new Operation("addr","88", "2"));
 		op.add(new Operation("and","64", "3/4"));
-		op.add(new Operation("clear","4", "2"));
+		op.add(new Operation("clear","180", "2"));
 		op.add(new Operation("comp","40", "3/4"));
 		op.add(new Operation("compr","160", "2"));
 		op.add(new Operation("div","36", "3/4"));
@@ -52,5 +54,12 @@ public class InstructionSet {
 				return true;
 		}
 		return false;
+	}
+	public static String getOpByName(String mnemonic){
+		for(int i=0; i<op.size(); i++){
+			if(op.get(i).getInstructionName().equals(mnemonic.toLowerCase()))
+				return op.get(i).getDecimalOpCode();
+		}
+		return null;
 	}
 }
