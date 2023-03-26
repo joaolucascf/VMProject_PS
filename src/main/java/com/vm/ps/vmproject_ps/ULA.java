@@ -185,16 +185,21 @@ C1 RESB 1
                 mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("A").getValue()));
                 break;
             case 120:
+                mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("B").getValue()));
                 break;
             case 84:
                 break;
             case 20:
+                mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("L").getValue()));
                 break;
             case 124:
+                mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("S").getValue()));
                 break;
             case 132:
+                mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("T").getValue()));
                 break;
             case 16:
+                mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("X").getValue()));
                 break;
             case 28:
             	reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue() - Byte.parseByte(operand,2));
@@ -205,8 +210,7 @@ C1 RESB 1
             	reg.registerSet.get(regs6[1]).setValue(3);
             	reg.registerSet.get(regs6[0]).setValue(reg.registerSet.get(regs6[0]).getValue()*reg.registerSet.get(regs6[1]).getValue());
                 break;
-            case 44:
-            	
+            case 44:            	
                 break;
             case 78:
             mem.saveInPosition(variables.get(operand), String.valueOf(reg.registerSet.get("B").getValue()));
