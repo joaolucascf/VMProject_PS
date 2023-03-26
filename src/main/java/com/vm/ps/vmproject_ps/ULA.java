@@ -1,6 +1,6 @@
 package com.vm.ps.vmproject_ps;
-import com.vm.ps.vmproject_ps.Controllers.codeEditorCtrl;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 import java.util.*;
 
@@ -20,7 +20,15 @@ C1 RESB 1
     private static Memory mem = new Memory();
     private Registers reg = new Registers();
     Map<String, Integer> variables = new HashMap<>();
+    public void reset_param(ListView memList){
+        mem.cmdMemory.clear();
+        mem.resetMem();
+        variables.clear();
+        reg.clearAll();
+        refreshMem(memList);
+    }
     public int read(String code, ListView memList){
+        reset_param(memList);
         Scanner sc = new Scanner(code);
         while(sc.hasNext()){
             boolean stopFound = false;
@@ -41,20 +49,21 @@ C1 RESB 1
         run();
         return 0;
     }
-    public void allocateVariables(Scanner sc, ListView memList){
-        while(sc.hasNext()){
+    public void allocateVariables(Scanner sc, ListView memList) {
+        while (sc.hasNext()) {
             String varLine = sc.nextLine();
-            if(!varLine.isEmpty()){
+            if (!varLine.isEmpty()) {
                 String[] allocLine = varLine.split(" ");
                 variables.put(allocLine[0].toLowerCase(), mem.nextEmptyPosition(allocLine[2]));
             }
         }
+        sc.close();
         refreshMem(memList);
     }
 
-    public ListView<String> refreshMem(ListView r){
-        r.getItems().addAll(mem.dataMemory);
-        return r;
+    private void refreshMem(ListView<String> t){
+        t.getItems().clear();
+        t.getItems().addAll(mem.dataMemory);
     }
 
     private void run(){
@@ -87,14 +96,10 @@ C1 RESB 1
                 break;
             case 88:
                 String[] regs = operand.trim().toUpperCase().split(",");
-                reg.registerSet.get(regs[0]).setValue(2);
-                reg.registerSet.get(regs[1]).setValue(3);
                 reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()+reg.registerSet.get(regs[1]).getValue());
                 break;
             case 64:
-                reg.registerSet.get("A").setValue(10);
                 reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()&Byte.parseByte(operand,2));
-                System.out.println(reg.registerSet.get("A").getValue());
                 break;
             case 180:
             	String[] regs2 = operand.trim().toUpperCase().split(",");

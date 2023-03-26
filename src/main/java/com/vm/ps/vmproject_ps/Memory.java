@@ -40,9 +40,16 @@ public class Memory{
         }
         return value;
     }
-
     public void saveInPosition(int i, String value){
+        value = manipulateValue(value);
         dataMemory.remove(i);
         dataMemory.add(i, value);
+    }
+
+    public void resetMem(){
+        freeMemoryIndex = 0;
+        dataMemory.clear();
+        for(int i=0; i<MEMORY_MIN_SIZE; i++)
+            dataMemory.add("000000000000000000000000");
     }
 }

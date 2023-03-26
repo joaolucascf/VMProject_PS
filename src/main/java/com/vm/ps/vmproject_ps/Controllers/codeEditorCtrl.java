@@ -6,7 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.awt.*;
 import java.io.File;
@@ -21,16 +23,25 @@ public class codeEditorCtrl implements Initializable{
     public TabPane tabPaneEditor;
     public Button deleteFileBtn;
     public ListView<String> memList;
+    public TextField SWField;
+    public TextField PCField;
+    public TextField FField;
+    public TextField TField;
+    public TextField SField;
+    public TextField BField;
+    public TextField LField;
+    public TextField XField;
+    public TextField AField;
     private List<TextArea> codeSet = new ArrayList<>();
     private ULA controlUnity = new ULA();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        memList.getItems().clear();
         memList.getItems().addAll(controlUnity.getMem().dataMemory);
     }
     public void newFile(MouseEvent mouseEvent) {
         tabPaneEditor.getTabs().add(createDefaultTab());
     }
-
     public Tab createDefaultTab(){
         Tab newTab = new Tab("New Tab");
         TextArea emptyTextArea = new TextArea();
@@ -51,15 +62,12 @@ public class codeEditorCtrl implements Initializable{
             i++;
         }
     }
-
     public void openFile(MouseEvent mouseEvent) throws IOException {
         Desktop desktop = Desktop.getDesktop();
         desktop.open(new File("C://"));
     }
-
     public void saveFile(MouseEvent mouseEvent) {
     }
-
     public void runCode(MouseEvent mouseEvent) {
         int i=0;
         TextArea codeToRun = null;

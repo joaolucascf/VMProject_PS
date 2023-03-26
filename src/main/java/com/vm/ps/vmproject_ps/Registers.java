@@ -27,4 +27,12 @@ public class Registers {
     public void setAccumulator(int accumulatorValue) {
         registerSet.get("A").setValue(accumulatorValue);
     }
+
+    public void clearAll(){
+        for(String i: registerSet.keySet()){
+            registerSet.get(i).setValue(0);
+        }
+    }
 }
+
+
