@@ -2,7 +2,7 @@
 Virtual machine implementation project, proposed as a final project for approval in the Systems Programming discipline, taught by Professor Dr. Anderson Ferrugem
 Computador hipotético feito em java
 
-1 - Memória
+# 1 - Memória
 tamanho de pelo menos 1kb
 palavra de memória de 24 bits (3 bytes)
 unidade de endereçamento: palavra
