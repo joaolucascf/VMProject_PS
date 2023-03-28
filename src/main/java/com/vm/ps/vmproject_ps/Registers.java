@@ -18,7 +18,7 @@ public class Registers {
     */
     public Registers() { //Instancia o conjunto de registradores, sendo 8 no total
         String[] registerMnemonics = {"A", "X", "L", "B", "S", "T", "F", "PC", "SW"};
-        for(int i=0; i<8; i++)
+        for(int i=0; i<9; i++)
             registerSet.put(registerMnemonics[i], new Register(i));
     }
     public int getAccumulator(){
