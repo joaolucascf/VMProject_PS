@@ -7,7 +7,7 @@ Computador hipotético feito em java
   * palavra de memória de 24 bits (3 bytes)
   * unidade de endereçamento: palavra
 
-  # 2 - Registradore
+  # 2 - Registradores
 
   * 0- A - acumulador de 24bits armazena dados das operações da ULA
 
