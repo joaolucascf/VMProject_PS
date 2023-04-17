@@ -17,50 +17,16 @@ FIVE WORD 5
 CHARZ BYTE C'Z'
 C1 RESB 1
         */
-    private static Memory mem = new Memory();
+    private final int MEMORY_MIN_SIZE = 1024; //constante de tamanho mínimo de memória de dados
+    private Memory mem = new Memory(MEMORY_MIN_SIZE);
     private Registers reg = new Registers();
-    Map<String, Integer> variables = new HashMap<>();
-    public void reset_param(ListView memList){
-        mem.cmdMemory.clear();
-        mem.resetMem();
+
+
+    public void reset_param(ListView memList) {
         variables.clear();
         reg.clearAll();
         refreshMem(memList);
     }
-    public int read(String code, ListView memList){
-        reset_param(memList);
-        Scanner sc = new Scanner(code);
-        while(sc.hasNext()){
-            boolean stopFound = false;
-            String codeLine = sc.nextLine();
-            String[] cmdLine = codeLine.split(" ");
-            for(int i=0; i<cmdLine.length; i++){
-                if(!cmdLine[i].isBlank() || !cmdLine[i].isEmpty())
-                    mem.cmdMemory.add(cmdLine[i].trim().toLowerCase());
-                if(cmdLine[i].trim().toLowerCase().equals("stop")){
-                    stopFound = true;
-                    break;
-                }
-            }
-            if(stopFound)
-                break;
-        }
-        allocateVariables(sc, memList);
-        run();
-        return 0;
-    }
-    public void allocateVariables(Scanner sc, ListView memList) {
-        while (sc.hasNext()) {
-            String varLine = sc.nextLine();
-            if (!varLine.isEmpty()) {
-                String[] allocLine = varLine.split(" ");
-                variables.put(allocLine[0].toLowerCase(), mem.nextEmptyPosition(allocLine[2]));
-            }
-        }
-        sc.close();
-        refreshMem(memList);
-    }
-
     private void refreshMem(ListView<String> t){
         t.getItems().clear();
         t.getItems().addAll(mem.dataMemory);
@@ -89,10 +55,42 @@ C1 RESB 1
         }
     }
 
+    short calculatePosition(boolean[] flags){
+        /*
+        * 0 = n
+        * 1 = i
+        * 2 = x
+        * 3 = b
+        * 4 = p
+        * 5 = e
+        * */
+        if (flags.length != 6)
+            throw new RuntimeException("Formato de instrução inválido");
+        short disp = 0;
+        short TA = 0;
+        if(flags[0] && flags[1]){
+            if (flags[3]){
+                TA = (short) (reg.registerSet.get("B").getValue() + disp);
+            }
+            else
+            if (flags[4]){
+                TA = (short) (reg.registerSet.get("PC").getValue() + disp);
+            }
+            else{
+                TA = disp;
+            }
+            if (flags[2]){
+                TA += (short) reg.registerSet.get("X").getValue();
+            }
+        }else{
+            for(int i = 3; i<flags.length; i++)
+        }
+        return TA;
+    }
+
     private void execute(String opCode, String operand){
         switch (Integer.valueOf(opCode)){
             case 24:
-                reg.registerSet.get("A").setValue(reg.registerSet.get("A").getValue()+Byte.parseByte(operand,2));
                 break;
             case 88:
                 String[] regs = operand.trim().toUpperCase().split(",");
