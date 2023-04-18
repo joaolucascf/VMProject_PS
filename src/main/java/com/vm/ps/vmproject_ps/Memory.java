@@ -14,16 +14,15 @@ public class Memory{
             throw new RuntimeException("Memory index out of bounds");
         memory[pos] = word;
     }
-    public short getWord(short pos, boolean n, boolean i){
-        if(n && !i) {
+    public short getWord(short pos, boolean n, boolean i) {
+        if (n && !i) { // Endereçamento indireto
             int result = memory[pos];
             return memory[result];
-        }else
-            if(!n && i){
+        } else if (!n && i) { // Endereçamento imediato
             return pos;
-        }else{
-                return memory[pos];
-            }
+        } else { // Endereçamento simples
+            return memory[pos];
+        }
     }
     public short[] getMemory() {
         return memory;
