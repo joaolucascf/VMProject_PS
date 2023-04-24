@@ -96,19 +96,15 @@ public class ULA {
                 String[] regs = operand.trim().toUpperCase().split(",");
         switch (Integer.valueOf(opCode)){
             case 24:
-                //String[] regs = operand.trim().toUpperCase().split(",");
-                reg.registerSet.get(regs[0].setValue(reg.registerSet.get(regs[0].getValue()) + mem.getWord(calculatePosition(flags))));
+                reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue() + mem.getWord(calculatePosition(flags)));
                 break;
             case 88:
-                //String[] regs = operand.trim().toUpperCase().split(",");
-                reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[1].getValue()) + reg.registerSet.get(regs[0]).getValue());
+                reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[1]).getValue() + reg.registerSet.get(regs[0]).getValue());
                 break;
             case 64:
-                //String[] regs = operand.trim().toUpperCase().split(",");
-                reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()&(calculatePosition(flags)));
+                reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()&(mem.getWord(calculatePosition(flags))));
                 break;
             case 180:
-            	//String[] regs2 = operand.trim().toUpperCase().split(",");
             	reg.registerSet.get(regs[0]).setValue(0);
                 break;
             case 40:
@@ -127,23 +123,23 @@ public class ULA {
             	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[1]).getValue()/reg.registerSet.get(regs[0]).getValue());
                 break;
             case 60:
-            	reg.registerSet.get(regs[7]).setValue(calculatePosition(flags));
+            	reg.registerSet.get(regs[7]).setValue(mem.getWord(calculatePosition(flags)));
                 break;
             case 48:
                 if(reg.registerSet.get(regs[0]).getValue() == (reg.registerSet.get(operand).getValue()))//duvida em relação ao operando, se é uma posição de memoria nao devo usar o mem.getWord()?
-                    reg.registerSet.get(regs[7]).setValue(calculatePosition(flags));
+                    reg.registerSet.get(regs[7]).setValue(mem.getWord(calculatePosition(flags)));
                 break;
             case 52:
                 if(reg.registerSet.get(regs[0]).getValue() < reg.registerSet.get(operand).getValue())
-                    reg.registerSet.get(regs[7]).setValue(calculatePosition(flags));
+                    reg.registerSet.get(regs[7]).setValue(mem.getWord(calculatePosition(flags)));
                 break;
             case 56:
                 if(reg.registerSet.get(regs[0]).getValue() > reg.registerSet.get(operand).getValue())
-                    reg.registerSet.get(regs[7]).setValue(calculatePosition(flags));
+                    reg.registerSet.get(regs[7]).setValue(mem.getWord(calculatePosition(flags)));
                 break;
             case 72:
                 reg.registerSet.get(regs[2]).setValue(reg.registerSet.get(regs[7]).getValue());
-                reg.registerSet.get(regs[7]).setValue(calculatePosition(flags));
+                reg.registerSet.get(regs[7]).setValue(mem.getWord(calculatePosition(flags)));
                 break;
             case 0:
             	reg.registerSet.get(regs[0]).setValue(mem.getWord(calculatePosition(flags)));
@@ -167,13 +163,13 @@ public class ULA {
                 reg.registerSet.get(regs[1]).setValue(mem.getWord(calculatePosition(flags)));
                 break;
             case 32:
-            	 reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()*calculatePosition(flags));	
+            	 reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()* mem.getWord(calculatePosition(flags)));	
                 break;
             case 152:
             	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue()*reg.registerSet.get(regs[1]).getValue());
                 break;
             case 68:
-            	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue() | calculatePosition(flags));	
+            	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue() | mem.getWord(calculatePosition(flags)));	
                 break;
             case 172:
             	reg.registerSet.get(regs[1]).setValue(reg.registerSet.get(regs[0]).getValue());
@@ -182,10 +178,9 @@ public class ULA {
             	reg.registerSet.get(regs[7]).setValue(reg.registerSet.get(regs[2]).getValue());
                 break;
             case 164:
-            	reg.registerSet.get(Byte.parseByte(operand, 2)).setValue(reg.registerSet.get(operand).getValue()); //deslocamento
-                break;
+                reg.registerSet.get(Byte.parseByte(regs[0], 2)).setValue(reg.registerSet.get(regs[0]).getValue() << reg.registerSet.get(regs[4]).getValue());                break;
             case 168:
-                //deslocamento
+                reg.registerSet.get(Byte.parseByte(regs[0], 2)).setValue(reg.registerSet.get(regs[0]).getValue() >> reg.registerSet.get(regs[4]).getValue());
                 break;
             case 12:
                 mem.storeWord(calculatePosition(flags), reg.registerSet.get(regs[0]).getValue());
@@ -194,7 +189,8 @@ public class ULA {
                 mem.storeWord(calculatePosition(flags), reg.registerSet.get(regs[3]).getValue());                
                 break;
             case 84:
-                //deslocamento
+                //byte mais a direita
+                
                 break;
             case 20:
                 mem.storeWord(calculatePosition(flags), reg.registerSet.get(regs[2]).getValue());
@@ -209,7 +205,7 @@ public class ULA {
                 mem.storeWord(calculatePosition(flags), reg.registerSet.get(regs[1]).getValue());
                 break;
             case 28:
-            	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue() - calculatePosition(flags));
+            	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[0]).getValue() - mem.getWord(calculatePosition(flags)));
                 break;
             case 148:
             	reg.registerSet.get(regs[0]).setValue(reg.registerSet.get(regs[1]).getValue()*reg.registerSet.get(regs[0]).getValue());
