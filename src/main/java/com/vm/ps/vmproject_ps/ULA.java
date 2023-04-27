@@ -23,7 +23,7 @@ public class ULA {
     private Memory mem = new Memory(MEMORY_MIN_SIZE);
     private Registers reg = new Registers();
 
-    public void reset_param(ListView memList) {
+    /*public void reset_param(ListView memList) {
         variables.clear();
         reg.clearAll();
         refreshMem(memList);
@@ -56,13 +56,13 @@ public class ULA {
                 PC.setValue(PC.getValue() + 1);
             }
         }
-    }
+    }*/
 
     private short flagToBitArray(boolean[] flags){
         short value = 0;
         for(int i = 3; i < 6; i++){
             if(flags[i])
-                value += Math.pow(2, i+13);
+                value = (short) (value + Math.pow(2, i + 13));
         }
         return value;
     }
