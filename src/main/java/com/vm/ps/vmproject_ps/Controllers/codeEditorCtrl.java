@@ -36,8 +36,8 @@ public class codeEditorCtrl implements Initializable{
     private ULA controlUnity = new ULA();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        memList.getItems().clear();
-        memList.getItems().addAll(controlUnity.getMem().dataMemory);
+        //memList.getItems().clear();
+        //memList.getItems().addAll(controlUnity.getMem().dataMemory);
     }
     public void newFile(MouseEvent mouseEvent) {
         tabPaneEditor.getTabs().add(createDefaultTab());

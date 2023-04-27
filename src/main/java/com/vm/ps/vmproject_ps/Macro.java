@@ -1,4 +1,4 @@
-package com.vm.ps;
+package com.vm.ps.vmproject_ps;
 
 import java.util.*;
 

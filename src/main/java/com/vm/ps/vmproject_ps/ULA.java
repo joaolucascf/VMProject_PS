@@ -58,6 +58,15 @@ public class ULA {
         }
     }
 
+    private short flagToBitArray(boolean[] flags){
+        short value = 0;
+        for(int i = 3; i < 6; i++){
+            if(flags[i])
+                value += Math.pow(2, i+13);
+        }
+        return value;
+    }
+
     short calculatePosition(boolean[] flags){
         /*
         * 0 = n
@@ -71,22 +80,18 @@ public class ULA {
             throw new RuntimeException("Formato de instrução inválido");
         short disp = 0;
         short TA = 0;
-        if(flags[0] && flags[1]){
-            if (flags[3]){
-                TA = (short) (reg.registerSet.get("B").getValue() + disp);
-            }
-            else
-            if (flags[4]){
+        if(!flags[0] && !flags[1])
+            TA = (short) (flagToBitArray(flags) + disp);
+        else{
+            if(flags[0] && flags[1])
+                if (flags[3])
+                    TA = (short) (reg.registerSet.get("B").getValue() + disp);
+            if (flags[4])
                 TA = (short) (reg.registerSet.get("PC").getValue() + disp);
-            }
-            else{
+            else
                 TA = disp;
-            }
-            if (flags[2]){
+            if (flags[2])
                 TA += (short) reg.registerSet.get("X").getValue();
-            }
-        }else{
-            for(int i = 3; i<flags.length; i++)
         }
         return TA;
     }
