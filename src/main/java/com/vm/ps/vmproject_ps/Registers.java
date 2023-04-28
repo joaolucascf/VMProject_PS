@@ -21,13 +21,6 @@ public class Registers {
         for(int i=0; i<9; i++)
             registerSet.put(registerMnemonics[i], new Register(i));
     }
-    public int getAccumulator(){
-        return registerSet.get("A").getValue();
-    }
-    public void setAccumulator(int accumulatorValue) {
-        registerSet.get("A").setValue(accumulatorValue);
-    }
-
     public void clearAll(){
         for(String i: registerSet.keySet()){
             registerSet.get(i).setValue(0);

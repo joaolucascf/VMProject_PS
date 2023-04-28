@@ -23,17 +23,11 @@ public class ULA {
     private Memory mem = new Memory(MEMORY_MIN_SIZE);
     private Registers reg = new Registers();
 
-    /*public void reset_param(ListView memList) {
-        variables.clear();
-        reg.clearAll();
-        refreshMem(memList);
-    }
-
     private void refreshMem(ListView<String> t) {
         t.getItems().clear();
         t.getItems().addAll(mem.dataMemory);
     }
-
+/*
     private void run() {
         boolean isRegisterOP;
         String operand;
@@ -236,5 +230,5 @@ public class ULA {
 
     public Memory getMem() {
         return mem;
-    }
+    }*/
 }

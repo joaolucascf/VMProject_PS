@@ -1,10 +1,18 @@
 package com.vm.ps.vmproject_ps;
 
+import javafx.scene.control.ListView;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Assembler {
     Map<String, Integer> variables = new HashMap<>();
+
+    public void reset_param(ListView memList) {
+        variables.clear();
+        reg.clearAll();
+        refreshMem(memList);
+    }
     public int read(String code, ListView memList){
         reset_param(memList);
         Scanner sc = new Scanner(code);

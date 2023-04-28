@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="nem sei mais oq to fazendo">
+    <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Comittado, ainda não terminei o cálculo do modo de endereçamento, mas pretendo terminar até amanhã a tarde">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Assembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Assembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Registers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Registers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +28,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2MvnVFVxZDQuai8vRTMUv7lmSsn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,8 +46,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/joao/Documentos/UFPel/VMProject_PS&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vaipo/Documents/Java Projects/VMProject_PS&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
@@ -187,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679966080028</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Comittado, ainda não terminei o cálculo do modo de endereçamento, mas pretendo terminar até amanhã a tarde">
+      <created>1681764059468</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1681764059468</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +225,8 @@
     <MESSAGE value="Acho que começamos a ter progresso" />
     <MESSAGE value="Memórias funcionais, falta só o executor e acho que terminamos" />
     <MESSAGE value="nem sei mais oq to fazendo" />
-    <option name="LAST_COMMIT_MESSAGE" value="nem sei mais oq to fazendo" />
+    <MESSAGE value="Comittado, ainda não terminei o cálculo do modo de endereçamento, mas pretendo terminar até amanhã a tarde" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comittado, ainda não terminei o cálculo do modo de endereçamento, mas pretendo terminar até amanhã a tarde" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
