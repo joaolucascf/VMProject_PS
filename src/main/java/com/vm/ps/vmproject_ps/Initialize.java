@@ -13,7 +13,7 @@ public class Initialize extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Initialize.class.getResource("codeEditor.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Code Assembler");
+        stage.setTitle("SIC/XE Simulator");
         stage.setScene(scene);
         stage.show();
     }

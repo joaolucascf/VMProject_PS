@@ -56,10 +56,10 @@ public class InstructionSet {
 		}
 		return false;
 	}
-	public static String getOpByName(String mnemonic){
+	public static Operation getOpByName(String mnemonic){
 		for(int i=0; i<op.size(); i++){
 			if(op.get(i).getInstructionName().equals(mnemonic.toLowerCase()))
-				return op.get(i).getDecimalOpCode();
+				return op.get(i);
 		}
 		return null;
 	}

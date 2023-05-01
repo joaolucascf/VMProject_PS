@@ -36,8 +36,7 @@ public class codeEditorCtrl implements Initializable{
     private ULA controlUnity = new ULA();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //memList.getItems().clear();
-        //memList.getItems().addAll(controlUnity.getMem().dataMemory);
+
     }
     public void newFile(MouseEvent mouseEvent) {
         tabPaneEditor.getTabs().add(createDefaultTab());
@@ -68,7 +67,7 @@ public class codeEditorCtrl implements Initializable{
     }
     public void saveFile(MouseEvent mouseEvent) {
     }
-    public void runCode(MouseEvent mouseEvent) {
+    public void runCode(MouseEvent mouseEvent) throws Exception {
         int i=0;
         TextArea codeToRun = null;
         Iterator<Tab> tabIterator = tabPaneEditor.getTabs().iterator();
@@ -81,7 +80,7 @@ public class codeEditorCtrl implements Initializable{
             i++;
         }
         String code = codeToRun.getText();
-        //controlUnity.read(code, memList);
+        controlUnity.run(code);
     }
     public void codeNextStep(MouseEvent mouseEvent) {
     }
