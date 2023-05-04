@@ -54,6 +54,7 @@ public class Assembler {
             System.out.println(LC);
             codeInMem.add(splitted);
         }
+        secondStep();
     }
 
     static int getSize(splitLine splitted){
@@ -94,11 +95,16 @@ public class Assembler {
                 break;
         }
     }
-
+    /*
+    * splitted.line = inicio da posição de memória que guarda uma determinada linha de comando
+    * splitted.label = label da linha de comando, pode ou não ser NULL
+    * splitted.opcode = recebe o opcode da linha de comando, em caso de alocação de variável,recebe o tipo
+    * splitted.operand = recebe o nome do operando, posteriormente convertido em posição de memória
+    * */
     static void reserveMemory(splitLine splitted){
         if(splitted.operand.startsWith("C")){
             String res = splitted.operand.substring(2, splitted.operand.length()-1);
-            LC+=res.length();
+            LC+=res.length()+1;
         }else
             LC++;
     }
@@ -108,9 +114,37 @@ public class Assembler {
             try {
                 Operation op = InstructionSet.getOpByName(i.opCode);
                 String opCode = Integer.toBinaryString(Integer.parseInt(op.getDecimalOpCode()));
+                opCode = convertOpCode(opCode, i.operand);
+                //System.out.println(opCode);
             }catch (NullPointerException e){
                 continue;
             }
         }
+    }
+    /*if(operand.contains(",")){
+        String[] operands = operand.split(",");
+        Integer address = symbolTable.get(operands[0]);
+    }*/
+
+    public static void main(String[] args) throws Exception {
+        firstStep();
+    }
+
+    /*converte o opcode de decimal para binário e ajusta ele aos padrões da máquina adicionando
+    * as flags N e I */
+    private static String convertOpCode(String opCode, String operand){
+        StringBuilder strBuild = new StringBuilder();
+        if(opCode.length()<8) {
+            for (int i = 0; i < 8 - opCode.length(); i++)
+                strBuild.append("0");
+            opCode = strBuild.toString() + opCode;
+        }
+        opCode = opCode.substring(0, 6);
+        if(operand.startsWith("@")){
+            opCode = opCode.concat("10");
+        }else if(operand.startsWith("#")){
+            opCode = opCode.concat("01");
+        }
+        return opCode;
     }
 }

@@ -1,4 +1,4 @@
-        ADD     STR
+        ADD     @STR
 STR     BYTE    C'SISTEMAS'
 VAR     WORD    14589
 RESERVA RESB    4
