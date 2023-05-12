@@ -1,8 +1,6 @@
 package com.vm.ps.vmproject_ps;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -115,31 +113,62 @@ public class Assembler {
             codeToBeObject.add(splittingNow);
         }
         printProgram(codeToBeObject);
+        stepTwo();
     }
 
     static void stepTwo(){
         List<String> finalObjCode = new ArrayList<>();
+        String objCode = new String("");
         for(splitLine line: codeToBeObject){
 
-            String lineObj = new String("");
+            String lineObj = "";
+
+            if(line.opCode.equals("END")){
+                lineObj = lineObj.concat("11111100");
+                continue;
+            }
 
             switch (line.format){
                 case 2:
-                    lineObj = formaTwo(lineObj, line);
+                    if(!line.opCode.equals("76"))
+                        lineObj = formaTwo(lineObj, line);
                     break;
                 case 3:
-                    lineObj = formaThree(lineObj, line);
+                    if(!line.opCode.equals("76"))
+                        lineObj = formaThree(lineObj, line);
+                    break;
+                case 4:
+                    //TODO: Implement FormatFour Method
+                    break;
+                default:
                     break;
             }
+
+            if(line.opCode.equals("WORD")){
+                lineObj = lineObj.concat(Integer.toBinaryString(Integer.parseInt(line.operand)));
+            }
+
+            if(line.opCode.equals("BYTE")){
+                lineObj = lineObj.concat(Integer.toBinaryString(Integer.parseInt(line.operand)));
+            }
+            finalObjCode.add(lineObj);
+            objCode = objCode.concat(lineObj+ "\n");
         }
+
+        System.out.println(" -- Código Objeto -- \n" + objCode + "\n");
+        printSymbolTable(symbolTable);
+        System.out.println();
+
+        writeObjCodeToFile(objCode, "out.txt");
     }
 
     private static String formaTwo(String lineObj, splitLine line){
         Operation op = InstructionSet.getOpByName(line.opCode);
         if(op != null){
-            lineObj = lineObj.concat(convertOpCode(Integer.toBinaryString(Integer.valueOf(op.getDecimalOpCode())), line.operand));
+            if(!op.getDecimalOpCode().equals("76"))
+                lineObj = lineObj.concat(convertOpCode(Integer.toBinaryString(Integer.valueOf(op.getDecimalOpCode())), line.operand));
         }else{
-            throw new RuntimeException(line.opCode + "não existe");
+            throw new RuntimeException(line.opCode + " não existe");
         }
 
         if(line.operand != null){
@@ -161,14 +190,6 @@ public class Assembler {
         return lineObj;
     }
 
-//    public static String formatFour(String lineObj, splitLine line){
-//        Operation op = InstructionSet.getOpByName(line.opCode);
-//        if(op != null){
-//            lineObj = lineObj.concat(convertOpCode(Integer.toBinaryString(Integer.valueOf(op.getDecimalOpCode())), line.operand));
-//        }
-//
-//    }
-
     public static void printProgram(List<splitLine> program){
         for (splitLine line: program) {
             System.out.println(
@@ -178,132 +199,28 @@ public class Assembler {
         }
     }
 
-//    static int getSize(splitLine splitted){
-//        Operation op = InstructionSet.getOpByName(splitted.opCode.toLowerCase());
-//        try {
-//            if (op.getInstructionFormat().equals("2"))
-//                return 2;
-//            else if (op.getInstructionFormat().equals("3/4"))
-//                return 3;
-//        }catch (NullPointerException e){
-//            return 0;
-//        }
-//        return 0;
-//    }
-//
-//    static void addSymbol(splitLine splitted) throws Exception {
-//        if(symbolTable.containsKey(splitted.label))
-//            throw new Exception("A label já existe");
-//        switch(splitted.opCode){
-//            case "WORD":
-//                symbolTable.put(splitted.label, splitted.line);
-//                LC+=3;
-//                break;
-//            case "BYTE":
-//                symbolTable.put(splitted.label, splitted.line);
-//                LC++;
-//                break;
-//            case "RESW":
-//                symbolTable.put(splitted.label, splitted.line);
-//                LC+=(Integer.parseInt(splitted.operand)*3);
-//                break;
-//            case "RESB":
-//                symbolTable.put(splitted.label, splitted.line);
-//                LC+=(Integer.parseInt(splitted.operand));
-//                break;
-//            default:
-//                symbolTable.put(splitted.label, splitted.line);
-//                break;
-//        }
-//    }
-//    /*
-//    * splitted.line = inicio da posição de memória que guarda uma determinada linha de comando
-//    * splitted.label = label da linha de comando, pode ou não ser NULL
-//    * splitted.opcode = recebe o opcode da linha de comando, em caso de alocação de variável,recebe o tipo
-//    * splitted.operand = recebe o nome do operando, posteriormente convertido em posição de memória
-//    * */
-//
-//    static String objectCode = new String();
-//    static void secondStep(){
-//        for(splitLine i: codeInMem){
-//            try {
-//                Operation op = InstructionSet.getOpByName(i.opCode);
-//                String opCode = Integer.toBinaryString(Integer.parseInt(op.getDecimalOpCode()));
-//                opCode = convertOpCode(opCode, i.operand);
-//                objectCode = objectCode.concat(opCode + "^");
-//                switch (getSize(i)){
-//                    case 2:
-//                        separateByRegister(i);
-//                        break;
-//                    case 3:
-//                        setFlags(i);
-//                        break;
-//                    default:
-//                        break;
-//                }
-//                i.operand = i.operand.replace("@", "").replace("#","");
-//                //System.out.txt.println(opCode);
-////                System.out.txt.println(i.operand);
-//            }catch (NullPointerException e){
-//                continue;
-//            }
-//        }
-//    }
-//    /*if(operand.contains(",")){
-//        String[] operands = operand.split(",");
-//        Integer address = symbolTable.get(operands[0]);
-//    }*/
-//
-//    static void separateByRegister(splitLine i){
-//        String[] splitRegisters = i.operand.split(",");
-//        splitRegisters[0] = Integer.toBinaryString(Registers.registerSet.get(splitRegisters[0]).getIndex());
-//        splitRegisters[1] = Integer.toBinaryString(Registers.registerSet.get(splitRegisters[1]).getIndex());
-//        splitRegisters[0] = preenche8Bits(splitRegisters[0]);
-//        splitRegisters[1] = preenche8Bits(splitRegisters[1]);
-//        objectCode = objectCode.concat(splitRegisters[0] + "^").concat(splitRegisters[1] + "^");
-//    }
-//
-//    static void setFlags(splitLine i){
-//        String[] operandSplit = i.operand.split(",");
-//        if(operandSplit.length > 2){
-//            throw new RuntimeException("Mais operandos que o esperado");
-//        }else if(operandSplit.length > 1){
-//            if(operandSplit[1].equals("X")) {
-//                String operando = preenche8Bits(Integer.toBinaryString(symbolTable.get(operandSplit[0])));
-//                objectCode = objectCode.concat(operando + "^").concat("00000001^");
-//            }else{
-//                throw new RuntimeException("O registrador de endereçamento indireto não é o X");
-//            }
-//        }else if(operandSplit.length == 1) {
-//            if (symbolTable.get(i.operand) != null) {
-//                Integer operand = symbolTable.get(i.operand);
-//                System.out.println(operand);
-//                String operandBinary = Integer.toBinaryString(operand);
-//                operandBinary = preenche8Bits(operandBinary);
-//                objectCode = objectCode.concat(operandBinary + "^");
-//            } else {
-//
-//            }
-//        }
-//    }
-    public static void main(String[] args) throws Exception {
-        firstStep();
+    public static void printSymbolTable(HashMap<String, Integer> SymTab){
+        System.out.println("-- Tabela de Símbolos --");
+        for (String instrucao : SymTab.keySet())
+            System.out.println(instrucao + " = " + String.format("%06X", SymTab.get(instrucao)));
     }
 
     /*converte o opcode de decimal para binário e ajusta ele aos padrões da máquina adicionando
     * as flags N e I */
     private static String convertOpCode(String opCode, String operand){
-        StringBuilder strBuild = new StringBuilder();
-        if(opCode.length()<8) {
-            for (int i = 0; i < 8 - opCode.length(); i++)
-                strBuild.append("0");
-            opCode = strBuild.toString() + opCode;
-        }
-        opCode = opCode.substring(0, 6);
-        if(operand.startsWith("@")){
-            opCode = opCode.concat("10");
-        }else if(operand.startsWith("#")){
-            opCode = opCode.concat("01");
+            StringBuilder strBuild = new StringBuilder();
+            if(opCode.length()<8) {
+                for (int i = 0; i < 8 - opCode.length(); i++)
+                    strBuild.append("0");
+                opCode = strBuild.toString() + opCode;
+            }
+            opCode = opCode.substring(0, 6);
+        if(!Byte.valueOf(opCode, 2).equals("76")) {
+            if (operand.startsWith("@")) {
+                opCode = opCode.concat("10");
+            } else if (operand.startsWith("#")) {
+                opCode = opCode.concat("01");
+            }
         }
         return opCode;
     }
@@ -316,6 +233,20 @@ public class Assembler {
             operand = strBuild.toString() + operand;
         }
         return operand;
+    }
+
+    public static void writeObjCodeToFile(String objCode, String nomearq) {
+        FileOutputStream printWriterObjeto = null;
+
+        try {
+            OutputStream output = new FileOutputStream(nomearq);
+            output.write(objCode.getBytes());
+            output.flush();
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private static String preenche4Bits(String operand){

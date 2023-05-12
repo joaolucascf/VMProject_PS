@@ -80,7 +80,7 @@ public class codeEditorCtrl implements Initializable{
             i++;
         }
         String code = codeToRun.getText();
-        controlUnity.run(code);
+        //controlUnity.run(code);
     }
     public void codeNextStep(MouseEvent mouseEvent) {
     }

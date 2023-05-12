@@ -23,7 +23,7 @@ public class Registers {
     }
     public void clearAll(){
         for(String i: registerSet.keySet()){
-            registerSet.get(i).setValue(0);
+            registerSet.get(i).setValue((short) 0);
         }
     }
 }

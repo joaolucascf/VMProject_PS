@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c43f8ee9-c164-4303-9256-9cd45d7cb1db" name="Changes" comment="Assembler quase pronto :)">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/arquivo.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/saida.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Assembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Assembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Controllers/codeEditorCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/MacroExpander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/MacroExpander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Registers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/Registers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vm/ps/vmproject_ps/ULA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +66,21 @@
       <recent name="com.vm.ps.vmproject_ps" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Assembler">
+  <component name="RunManager" selected="Application.MacroExpander">
     <configuration name="Assembler (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vm.ps.vmproject_ps.Assembler" />
+      <module name="VMProject_PS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vm.ps.vmproject_ps.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Assembler (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vm.ps.vmproject_ps.Assembler" />
       <module name="VMProject_PS" />
       <extension name="coverage">
@@ -86,20 +106,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SICXEAssembler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vm.ps.vmproject_ps.Controllers.SICXEAssembler" />
-      <module name="VMProject_PS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vm.ps.vmproject_ps.Controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Assembler.firstStep" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Initialize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vm.ps.vmproject_ps.Initialize" />
       <module name="VMProject_PS" />
       <extension name="coverage">
         <pattern>
@@ -107,20 +115,30 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.vm.ps.vmproject_ps" />
-      <option name="MAIN_CLASS_NAME" value="com.vm.ps.vmproject_ps.Assembler" />
-      <option name="METHOD_NAME" value="firstStep" />
-      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MacroExpander" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vm.ps.vmproject_ps.MacroExpander" />
+      <module name="VMProject_PS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vm.ps.vmproject_ps.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MacroExpander" />
         <item itemvalue="Application.Assembler" />
+        <item itemvalue="Application.Assembler (2)" />
         <item itemvalue="Application.Assembler (1)" />
-        <item itemvalue="Application.SICXEAssembler" />
-        <item itemvalue="JUnit.Assembler.firstStep" />
+        <item itemvalue="Application.Initialize" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683861284390</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Assembler quase pronto :)">
+      <created>1683861377406</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683861377406</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
