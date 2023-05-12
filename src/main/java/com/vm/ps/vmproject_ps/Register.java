@@ -6,6 +6,10 @@ public class Register {
     public Register(int index){
         this.index = index;
     }
+
+    public int getIndex(){
+        return this.index;
+    }
     public void setValue(short value) {
         this.value = value;
     }
