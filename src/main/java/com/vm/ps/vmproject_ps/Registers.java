@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Registers {
-    Map<String, Register> registerSet = new HashMap<>();
+    static Map<String, Register> registerSet = new HashMap<>();
 
     /* A = Acumulador
     * X = Indice
@@ -16,7 +16,7 @@ public class Registers {
     * PC = Program Counter
     * SW = Status Word
     */
-    public Registers() { //Instancia o conjunto de registradores, sendo 8 no total
+    static { //Instancia o conjunto de registradores, sendo 8 no total
         String[] registerMnemonics = {"A", "X", "L", "B", "S", "T", "F", "PC", "SW"};
         for(int i=0; i<9; i++)
             registerSet.put(registerMnemonics[i], new Register(i));

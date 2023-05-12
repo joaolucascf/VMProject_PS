@@ -11,7 +11,7 @@ public class Memory{
     }
     public void storeWord(short pos, short word) {
         if(pos>memory.length)
-            throw new RuntimeException("Memory index out of bounds");
+            throw new RuntimeException("Memory index out.txt of bounds");
         memory[pos] = word;
     }
     public short getWord(short pos, boolean n, boolean i){
